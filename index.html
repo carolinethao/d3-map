@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="Content/favicon.png" />
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/regular.css"
+          integrity="sha384-rbtXN6sVGIr49U/9DEVUaY55JgfUhjDiDo3EC0wYxfjknaJamv0+cF3XvyaovFbC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/fontawesome.css"
+          integrity="sha384-syoT0d9IcMjfxtHzbJUlNIuL19vD9XQAdOzftC+llPALVSZdxUpVXE0niLOiw/mn" crossorigin="anonymous">
+
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+        }
+
+        a,
+        a::after {
+            color: #0098ce;
+            text-decoration: none;
+        }
+
+        article,
+        aside,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        main,
+        nav,
+        section {
+            display: block;
+        }
+
+        body {
+            background-color: #fff;
+            color: #333;
+            font-size: 14px;
+            font-weight: 400;
+            margin: 0;
+            text-align: left;
+        }
+
+        button {
+            background-color: #fff;
+            border: 1px solid #c1c1c1;
+            border-radius: 3px;
+            color: #666;
+            font-size: 14px;
+            font-weight: 600;
+            height: 35px;
+            min-width: 41.5781px;
+            outline: none;
+            padding: 0 12px;
+        }
+
+            button:hover,
+            #dropdown-content li:hover {
+                background-color: #53667b;
+                border: 1px solid rgba(44, 189, 243, 0);
+                color: #fff;
+                cursor: pointer;
+                font-weight: 600;
+            }
+
+        circle:hover {
+            fill: #fdb748 !important;
+            opacity: 1 !important;
+            transition: opacity .25s ease-in-out;
+            z-index: 2147483647 !important;
+        }
+
+        div.tooltip {
+            background: #7c7c7c;
+            border: 0;
+            border-radius: 3px;
+            color: #fff;
+            font: 12px Arial;
+            height: auto;
+            padding: 5px;
+            pointer-events: none;
+            position: absolute;
+            text-align: center;
+            white-space: pre-wrap;
+            width: auto;
+        }
+
+        footer {
+            color: #999;
+            font-size: 11px;
+            margin: auto;
+            max-width: 1920px;
+            padding: 0 20px 20px;
+        }
+
+        h1 {
+            font-size: 3.125vw;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        h3 {
+            font-size: 1.042vw;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        html {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: normal;
+        }
+
+        main {
+            box-sizing: border-box;
+            display: block;
+            margin: auto;
+            max-width: 1920px;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            padding: 20px;
+            position: relative;
+        }
+
+        path:hover {
+            cursor: pointer;
+        }
+
+        .active {
+            background-color: #53667b;
+            border: 1px rgba(44, 189, 243, 0) solid;
+            color: #fff;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .align-bottom {
+            bottom: 0;
+            position: absolute;
+        }
+
+        .align-center {
+            text-align: center;
+        }
+
+        .border-b {
+            border-bottom: 1px solid #e9e9ed;
+            border-left: 1px solid #e9e9ed;
+            border-top: 1px solid #e9e9ed;
+        }
+
+        .col {
+            flex-basis: 0;
+            flex-grow: 1;
+            max-width: 100%;
+            position: relative;
+            width: 100%;
+        }
+
+        .col-1 {
+            -ms-flex: 0 0 8.333333%;
+            flex: 0 0 8.333333%;
+            max-width: 8.333333%;
+            position: relative;
+            width: 100%;
+        }
+
+        .col-10 {
+            -ms-flex: 0 0 83.333333%;
+            flex: 0 0 83.333333%;
+            max-width: 83.333333%;
+            position: relative;
+            width: 100%;
+        }
+
+        .col-11 {
+            -ms-flex: 0 0 91.666667%;
+            flex: 0 0 91.666667%;
+            max-width: 91.666667%;
+            position: relative;
+            width: 100%;
+        }
+
+        .col-12 {
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+            position: relative;
+            width: 100%;
+        }
+
+        .col-2 {
+            -ms-flex: 0 0 16.666667%;
+            flex: 0 0 16.666667%;
+            max-width: 16.666667%;
+            position: relative;
+            width: 100%;
+        }
+
+        .col-3 {
+            -ms-flex: 0 0 25%;
+            flex: 0 0 25%;
+            max-width: 25%;
+            position: relative;
+            width: 100%;
+        }
+
+        .col-4 {
+            -ms-flex: 0 0 33.333333%;
+            flex: 0 0 33.333333%;
+            max-width: 33.333333%;
+            position: relative;
+            width: 100%;
+        }
+
+        .col-5 {
+            -ms-flex: 0 0 41.666667%;
+            flex: 0 0 41.666667%;
+            max-width: 41.666667%;
+            position: relative;
+            width: 100%;
+        }
+
+        .col-6 {
+            -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+            max-width: 50%;
+            position: relative;
+            width: 100%;
+        }
+
+        .col-7 {
+            -ms-flex: 0 0 58.333333%;
+            flex: 0 0 58.333333%;
+            max-width: 58.333333%;
+            position: relative;
+            width: 100%;
+        }
+
+        .col-8 {
+            -ms-flex: 0 0 66.666667%;
+            flex: 0 0 66.666667%;
+            max-width: 66.666667%;
+            position: relative;
+            width: 100%;
+        }
+
+        .col-9 {
+            -ms-flex: 0 0 75%;
+            flex: 0 0 75%;
+            max-width: 75%;
+            position: relative;
+            width: 100%;
+        }
+
+        .col-auto {
+            -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+            max-width: 100%;
+            position: relative;
+            width: auto;
+        }
+
+        .container {
+            box-sizing: border-box;
+            display: flex;
+        }
+
+        .divider {
+            border-bottom: 1px solid #666;
+            padding-bottom: 15px;
+            padding-top: 15px;
+        }
+
+        .dropbtn {
+            background-color: #53667b;
+            border: none;
+            color: #FFF;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .dropdown {
+            display: inline-block;
+            position: relative;
+        }
+
+            .dropdown:hover #dropdown-content {
+                display: block;
+            }
+
+            .dropdown:hover .dropbtn {
+                background-color: #53667b;
+            }
+
+        .float-right {
+            float: right;
+        }
+
+        .header-bar {
+            align-items: flex-end;
+            background-color: #53667b;
+            box-sizing: border-box;
+            color: #fff;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            height: 60px;
+            padding-left: 20px;
+            padding-right: 20px;
+            position: relative;
+            top: 0;
+            width: 100%;
+        }
+
+        .hidden {
+            display: none;
+            opacity: 0;
+        }
+
+        .infinedi-blue {
+            color: #23cbff;
+        }
+
+        .infinedi-green {
+            color: #89ab44;
+        }
+
+        .map {
+            box-sizing: border-box;
+            color: #333;
+            display: block;
+            position: relative;
+        }
+
+        .map-container {
+            border-left: 1px solid #e9e9ed;
+            box-sizing: border-box;
+            color: #4a4a4a;
+            display: block;
+            flex: auto;
+            line-height: 24px;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            position: relative;
+        }
+
+        .map-footer {
+            align-items: center;
+            background-color: #fafafc;
+            border: 1px solid #e9e9ed;
+            box-sizing: border-box;
+            color: #333;
+            display: flex;
+            padding: 20px;
+        }
+
+        .map-header {
+            align-items: center;
+            background-color: #fafafc;
+            border-top: 1px solid #e9e9ed;
+            box-sizing: border-box;
+            color: #333;
+            display: flex;
+            padding: 20px;
+        }
+
+        .map-legend {
+            position: relative;
+            align-items: center;
+            border-top: 1px solid #e9e9ed;
+            box-sizing: border-box;
+            color: #333;
+            display: flex;
+            padding: 20px 20px 0;
+        }
+
+        .navbar-title {
+            bottom: 0;
+            display: block;
+            flex-grow: 1;
+            line-height: 100%;
+            max-width: 100%;
+            padding-bottom: 15px;
+            position: relative;
+        }
+
+        .p-20 {
+            padding: 20px;
+        }
+
+        .pagination,
+        .pagination:hover {
+            margin-left: 3.5px;
+            margin-right: 3.5px;
+        }
+
+        .pb-0 {
+            padding-bottom: 0 !important;
+        }
+
+        .pt-0 {
+            padding-top: 0 !important;
+        }
+
+        .pt-20 {
+            padding-top: 20px;
+        }
+
+        .row {
+            -ms-flex-wrap: wrap;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .stats-container {
+            background-color: #53667b;
+            box-sizing: border-box;
+            color: #fff;
+            display: block;
+            flex-basis: 20.667vw;
+            flex-grow: 0;
+            flex-shrink: 0;
+            float: right;
+            font-size: 14px;
+            max-width: 310px;
+            min-width: 235px;
+            padding: 20px;
+            position: relative;
+            text-align: center;
+        }
+
+        #dropdown-content {
+            background-color: #f9f9f9;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+            display: none;
+            max-height: 50vh;
+            min-width: 181px;
+            overflow-y: auto;
+            position: absolute;
+            z-index: 1;
+        }
+
+            #dropdown-content li {
+                color: #2b2c4b;
+                display: block;
+                padding: 1px 12px;
+                text-decoration: none;
+            }
+
+        #next-week-container {
+            padding-right: 310px;
+        }
+
+        #play-button {
+            font-size: 35px;
+            margin: 20px;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+
+        .fa-stop-circle {
+            color: #c4512e;
+        }
+
+        .fa-play-circle {
+            color: #53667b;
+        }
+
+
+        #play-button:hover {
+            cursor: pointer;
+        }
+
+        @media (min-width: 1920px) {
+            h1 {
+                font-size: 60px;
+            }
+
+            h3 {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 1500px) {
+            #nav-center {
+                display: none;
+            }
+
+            h1 {
+                font-size: 45px;
+            }
+
+            h3 {
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            #next-week-container {
+                padding-right: 0;
+            }
+
+            #stats {
+                display: none;
+            }
+
+            .map-container {
+                border-right: 1px solid #e9e9ed;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <div class="map-container">
+                <div class="map-header">
+                    <div class="col">
+                        <div class="align-center" style="font-size: 24px">Weekly Closing Trends by County</div>
+                    </div>
+                </div>
+                <div id="map-legend" class="map-legend">
+                    <div style="min-width: fit-content; z-index: 1; position:absolute; top:20px">
+                        <div class="dropdown">
+                            <button class="dropbtn">Select State ▾</button>
+                            <div id="dropdown-content">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="align-center" style="margin-left:auto; margin-right:auto">
+                        <div id="week" style="padding-bottom: 5px;">n/a</div>
+                        <div class="date" style="font-size: 24px;">n/a</div>
+                    </div>
+                </div>
+                <div id="map" class="map align-center">
+                    <i id="play-button" class="far fa-play-circle hidden"></i>
+                </div>
+            </div>
+            <aside id="stats" class="stats-container align-center">
+                <div class="stats divider pt-0">
+                    <span class="date">n/a</span>
+                </div>
+                <div class="stats divider">
+                    <h3>National Average</h3>
+                    <h1 id="national-average">n/a</h1>
+                </div>
+                <div class="stats divider">
+                    <h3>National Gain Average</h3>
+                    <h1><span class="infinedi-green">+</span><span id="national-gain">n/a</span></h1>
+                </div>
+                <div class="stats divider">
+                    <h3>National Loss Average</h3>
+                    <h1><span class="infinedi-blue">-</span><span id="national-loss">n/a</span></h1>
+                </div>
+                <div class="stats divider">
+                    <h3>Telemedicine Change</h3>
+                    <h1 id="telemed-change">n/a</h1>
+                </div>
+            </aside>
+        </div>
+        <div class="map-footer">
+            <div class="col" style="max-width: fit-content">
+                <button id="previous-week">Previous Week</button>
+            </div>
+            <div id="map-pagination" class="col align-center">
+            </div>
+            <div id="next-week-container" class="col" style="max-width: fit-content">
+                <button id="next-week" class="float-right" style="opacity: 0">Next Week</button>
+            </div>
+        </div>
+    </main>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        const dates = {
+            currentWeek: getWeekNo(new Date()) - 1,
+            currentYear: new Date().getFullYear(),
+            activeYear: new Date().getFullYear(),
+            previousYearLastWeek: getWeekNo(new Date(new Date().getFullYear() - 1, 11, 31)),
+            previousYear: new Date().getFullYear() - 1,
+            weekId: new Date().getFullYear() + formatDoubleDigit(getWeekNo(new Date()) - 1),
+            activeWeekId: null,
+            firstWeek: null,
+            lastWeek: new Date().getFullYear() + formatDoubleDigit(getWeekNo(new Date()) - 1),
+            numberOfWeeksPreviousYear: getWeekNo(new Date(new Date().getFullYear(), 11, 31))
+        }
+
+        const map = {
+            dataset: {},
+            coordinates: {},
+            checkDataset: function () {
+                d3.csv("data/weeks/" + dates.weekId + ".csv", data => {
+                    if (!data) {
+                        dates.weekId = dates.weekId - 1;
+                        dates.currentWeek = dates.currentWeek - 1;
+                        dates.lastWeek = dates.lastWeek - 1;
+                        map.checkDataset();
+                    } else {
+                        map.fetchDataset();
+                    }
+                })
+            },
+            fetchDataset: function () {
+                d3.csv("data/weeks/" + dates.weekId + ".csv", data => {
+                    if (!data) {
+                        if (dates.activeYear != dates.previousYear) {
+                            map.fetchDataset();
+                        } else {
+                            d3.select('#play-button').classed('hidden', false);
+                            return;
+                        }
+                    } else {
+                        map.dataset[dates.weekId] = data;
+                        drawPagination();
+
+                        if (Object.keys(map.dataset).length == 1) {
+                            dates.activeWeekId = dates.weekId;
+                            map.fetchCoordinates();
+                        }
+                    }
+
+                    if (dates.currentWeek == 1) {
+                        dates.activeYear = dates.previousYear;
+                        dates.currentWeek = dates.previousYearLastWeek;
+                    } else {
+                        dates.currentWeek = dates.currentWeek - 1;
+                    }
+
+                    dates.weekId = dates.activeYear + formatDoubleDigit(dates.currentWeek);
+                    map.fetchDataset();
+                })
+            },
+            fetchCoordinates: function () {
+                d3.json('data/coordinates.json', coordinates => {
+                    map.coordinates = coordinates;
+                    drawMap();
+                })
+            },
+            init: function () {
+                this.checkDataset();
+            }
+        };
+
+        map.init();
+
+        var currentDate = formatDoubleDigit(dates.currentWeek);
+
+        var width = $('#map-legend').width(),
+            height = width * .49
+
+        var projection = d3.geo.albersUsa()
+            .translate([width / 2, height / 2])
+            .scale(width);
+
+        var path = d3.geo.path()
+            .projection(projection);
+
+        var svg = d3.select('#map')
+            .append('svg')
+            .attr('viewBox', '0 0 '.concat(width, ' ', height))
+            .attr('preserveAspectRatio', 'xMinYMin slice');
+
+        var div = d3.select('body')
+            .append('div')
+            .attr('class', 'tooltip')
+            .style('opacity', 0);
+
+        function drawPagination() {
+            d3.select('#map-pagination')
+                .insert('button', ':first-child')
+                .attr('id', d => { return 'week-' + dates.weekId })
+                .attr('class', d => {
+                    if (d3.selectAll("#map-pagination button").size() > 3) {
+                        dates.firstWeek = Number((document.querySelector('#map-pagination button:first-child').id).match(/\d+/g).map(Number));
+
+                        return 'pagination hidden'
+                    } else {
+                        return 'pagination'
+                    }
+                })
+                .text(d => { return dates.currentWeek })
+                .on('click', function () {
+                    activeWeekId = this.id;
+                    data = map.dataset[Number(activeWeekId.match(/\d+/g).map(Number))];
+                    update(activeWeekId, data);
+
+                    d3.selectAll('.pagination')
+                        .classed('active', false);
+
+                    d3.selectAll('#' + activeWeekId)
+                        .classed('active', true);
+                })
+        }
+
+        var activeWeekId = 'week-' + dates.activeWeekId;
+
+        function drawMap() {
+            data = map.dataset[dates.activeWeekId];
+            activeWeekId = 'week-' + dates.activeWeekId;
+
+            svg.selectAll('path')
+                .data(map.coordinates.features)
+                .enter()
+                .append('path')
+                .attr('d', path)
+                .attr('id', state => { return state.id })
+                .style('fill', '#ffffff')
+                .style('stroke', '#53667b')
+                .style('stroke-width', '1px')
+                .style('vector-effect', 'non-scaling-stroke')
+                .on('click', zoom);
+
+            d3.select('#dropdown-content')
+                .selectAll('states')
+                .data(map.coordinates.features)
+                .enter()
+                .append('li')
+                .text(state => { return state.properties.name })
+                .on('click', state => { $('#' + state.id).svgEvent('click') });
+
+            /* start styling for IE */
+            if (window.document.documentMode) {
+                d3.select('#map')
+                    .style('height', '' + (height + $('#map-legend').height()) + 'px');
+            }
+            /* /end styling for IE */
+
+            /* /end pagination filter */
+
+            d3.selectAll('svg')
+                .on('load', update(activeWeekId, data));
+
+            /* start zoom state */
+            function zoom(state) {
+                var activeState = this;
+
+                if ($(this).is('.active-state')) {
+                    d3.selectAll('path')
+                        .transition()
+                        .duration(750)
+                        .attr('transform', 'translate(0, 0)scale(1)')
+                        .attr('class', null)
+                        .style('stroke-width', '1px')
+                        .style('visibility', 'visible');
+
+                    d3.selectAll('circle')
+                        .transition()
+                        .duration(750)
+                        .attr('transform', 'translate(0, 0)scale(1)')
+                        .attr('r', d => { return d.bubble })
+                        .style('visibility', 'visible');
+
+                    var activeState = null;
+                }
+
+                if (this === activeState) {
+                    var bounds = path.bounds(state),
+                        dx = bounds[1][0] - bounds[0][0],
+                        dy = bounds[1][1] - bounds[0][1],
+                        x = (bounds[0][0] + bounds[1][0]) / 2,
+                        y = (bounds[0][1] + bounds[1][1]) / 2,
+                        scale = .9 / Math.max(dx / width, dy / height),
+                        translate = [width / 2 - scale * x, height / 2 - scale * y];
+
+                    d3.selectAll('path')
+                        .attr('class', function () { return (this === activeState) ? 'active-state' : null })
+
+                    d3.selectAll('path')
+                        .style('visibility', function () { return (this === activeState) ? 'visible' : 'hidden' })
+
+                    d3.selectAll('path')
+                        .transition()
+                        .duration(750)
+                        .style('visibility', function () { return (this === activeState) ? 'visible' : 'hidden' })
+                        .style('stroke-width', function () { return (this === activeState) ? 1 / scale + 'px' : '1px' })
+                        .attr('transform', function () { return (this === activeState) ? 'translate(' + translate + ')scale(' + scale + ')' : 'translate(0, 0)scale(1)' });
+
+                    d3.selectAll('circle')
+                        .transition()
+                        .duration(750)
+                        .style('visibility', 'hidden')
+                        .attr('r', d => { return d.bubble })
+                        .attr('transform', 'translate(0, 0)scale(1)')
+
+                    d3.selectAll('circle[data-state=' + state.id + ']')
+                        .transition()
+                        .duration(750)
+                        .style('visibility', 'visible')
+                        .attr('r', d => { return Math.sqrt(d.bubble) / (scale / 5) })
+                        .attr('transform', 'translate(' + translate + ')scale(' + scale + ')')
+                }
+            }
+            /* /end zoom state */
+
+            /* start play pagination */
+            d3.select('#play-button')
+                .on('click', playPagination)
+
+            function playPagination() {
+                if ($(this).is('.fa-stop-circle')) {
+                    $(this).attr('class', 'far fa-play-circle')
+                    clearInterval(interval);
+                } else if ($(this).is('.fa-play-circle')) {
+                    $(this).attr('class', 'far fa-stop-circle')
+                    if ($('#week-' + dates.lastWeek + '').is('.active')) {
+                        $('#week-' + dates.firstWeek).svgEvent('click')
+                    }
+                    interval = setInterval(function () {
+                        $('#next-week').click();
+                        if ($('#week-' + dates.lastWeek + '').is('.active')) {
+                            $('#play-button').attr('class', 'far fa-play-circle')
+                            clearInterval(interval);
+                        }
+                    }, 2000);
+                }
+            }
+            /* /end play pagination */
+
+            update(activeWeekId, data);
+        }
+
+        /* start update week */
+        function update(activeWeekId, data) {
+            svg.selectAll('circle').remove();
+
+            svg.selectAll('svg')
+                .data(data)
+                .enter()
+                .append('circle')
+                .attr('cx', d => { return projection([d.lon, d.lat])[0] })
+                .attr('cy', d => { return projection([d.lon, d.lat])[1] })
+                .attr('r', d => { return d.bubble })
+                .attr('class', d => { return 'week-' + d.week })
+                .attr('data-state', d => { return d.state })
+                .style('fill', d => { return d.change < 0 ? '#a67a46' : '#41948b' })
+                .style('opacity', 0)
+                .on('mouseover', d => {
+                    var tooltip = function () {
+                        return d.change > 0
+                            ? 'County: ' + d.county + '\n' + 'Avg. Change: +' + Math.round((d.change * 100)) + '%'
+                            : 'County: ' + d.county + '\n' + 'Avg. Change: ' + Math.round((d.change * 100)) + '%'
+                    };
+
+                    div.transition()
+                        .duration(200)
+                        .style('opacity', 1);
+
+                    div.text(tooltip)
+                        .style('left', (d3.event.pageX) + 'px')
+                        .style('top', (d3.event.pageY - 28) + 'px');
+                })
+                .on('mouseout', d => {
+                    div.transition()
+                        .duration(500)
+                        .style('opacity', 0);
+                });
+
+            svg.selectAll('.' + activeWeekId)
+                .transition()
+                .duration(1000)
+                .style('opacity', .5)
+                .attr('r', d => {
+                    if (d3.selectAll('.active-state').size() > 0) {
+                        var activeState = $('.active-state').attr('id')
+
+                        state = d3.max(map.coordinates.features.filter(state => { return state.id == activeState }))
+
+                        var bounds = path.bounds(state),
+                            dx = bounds[1][0] - bounds[0][0],
+                            dy = bounds[1][1] - bounds[0][1],
+                            scale = .9 / Math.max(dx / width, dy / height),
+
+                            size = Math.sqrt(d.bubble) / (scale / 5)
+                    } else {
+                        size = d.bubble
+                    }
+                    return size;
+                });
+
+            if (activeWeekId == 'week-' + dates.lastWeek) {
+                d3.selectAll('#next-week')
+                    .transition()
+                    .duration(200)
+                    .style('opacity', 0)
+                    .style('visibility', 'hidden');
+            } else {
+                d3.selectAll('#next-week')
+                    .transition()
+                    .duration(200)
+                    .style('opacity', 1)
+                    .style('visibility', 'visible');
+            };
+
+            if (activeWeekId == 'week-' + dates.firstWeek) {
+                d3.selectAll('#previous-week')
+                    .transition()
+                    .duration(200)
+                    .style('opacity', 0)
+                    .style('visibility', 'hidden');
+            } else {
+                d3.selectAll('#previous-week')
+                    .transition()
+                    .duration(200)
+                    .style('opacity', 1)
+                    .style('visibility', 'visible');
+            };
+
+            d3.selectAll('#next-week')
+                .on('click', function () {
+                    let increment = activeWeekId == ('week-' + dates.previousYear + dates.numberOfWeeksPreviousYear) ? (101 - dates.previousYearLastWeek) : 1;
+                    let activeWeek = 'week-' + (Number(activeWeekId.match(/\d+/g).map(Number)) + increment);
+
+                    data = map.dataset[Number(activeWeekId.match(/\d+/g).map(Number)) + increment];
+                    update(activeWeek, data);
+
+                    d3.selectAll('#' + activeWeekId)
+                        .classed('active', false);
+                });
+
+            d3.selectAll('#previous-week')
+                .on('click', function () {
+                    let increment = activeWeekId == 'week-' + dates.currentYear + '01' ? (101 - dates.previousYearLastWeek) : 1;
+                    let activeWeek = 'week-' + (Number(activeWeekId.match(/\d+/g).map(Number)) - increment);
+
+                    data = map.dataset[Number(activeWeekId.match(/\d+/g).map(Number)) - increment];
+                    update(activeWeek, data);
+
+                    d3.selectAll('#' + activeWeekId)
+                        .classed('active', false);
+                });
+
+            d3.selectAll('#' + activeWeekId)
+                .classed('active', true);
+
+            var telemedChange = d3.max((data.filter(d => { return d.week == Number(activeWeekId.match(/\d+/g).map(Number)) })), d => { return d.telemed });
+            var nationalAverage = d3.mean((data.filter(d => { return d.week == Number(activeWeekId.match(/\d+/g).map(Number)) })), d => { return d.change });
+            var nationalGain = d3.mean((data.filter(d => { return d.week == Number(activeWeekId.match(/\d+/g).map(Number)) && d.change > 0 })), d => { return d.change });
+            var nationalLoss = d3.mean((data.filter(d => { return d.week == Number(activeWeekId.match(/\d+/g).map(Number)) && d.change < 0 })), d => { return d.change });
+
+            if (telemedChange > 0) {
+                d3.selectAll('#telemed-change')
+                    .html('<span class="infinedi-green">+</span>' + Math.round(telemedChange * 100) + '%');
+            } else if (telemedChange < 0) {
+                d3.selectAll('#telemed-change')
+                    .html('<span class="infinedi-blue">-</span>' + Math.abs(Math.round(telemedChange * 100)) + '%');
+            } else {
+                d3.selectAll('#telemed-change')
+                    .text(Math.round(telemedChange * 100) + '%')
+            }
+
+            if (nationalAverage > 0) {
+                d3.selectAll('#national-average')
+                    .html('<span class="infinedi-green">+</span>' + Math.round(nationalAverage * 100) + '%');
+            } else {
+                d3.selectAll('#national-average')
+                    .html('<span class="infinedi-blue">-</span>' + Math.abs(Math.round(nationalAverage * 100)) + '%');
+            }
+
+            d3.selectAll('#national-gain')
+                .text(Math.round(nationalGain * 100) + '%');
+
+            d3.selectAll('#national-loss')
+                .text(Math.abs(Math.round(nationalLoss * 100)) + '%');
+
+            var weeks = document.querySelectorAll('.pagination');
+            var paginationLength = document.querySelectorAll('.pagination').length - 1;
+            var currentweeks = null;
+
+            for (var i = 0; i < weeks.length; i++) {
+                if (weeks[i].getAttribute('id') === activeWeekId) {
+                    currentweeks = i;
+                }
+            }
+
+            var currentWeek = Number(activeWeekId.match(/\d+/g).map(Number));
+
+            if (document.querySelectorAll('.pagination').length > 3) {
+                if (currentWeek == dates.lastWeek) {
+                    var pagination = '#'.concat(weeks[paginationLength - 2].id, ', #', weeks[paginationLength - 1].id, ', #', weeks[paginationLength].id)
+                } else if (currentWeek == dates.firstWeek) {
+                    var pagination = '#'.concat(weeks[0].id, ', #', weeks[1].id, ', #', weeks[2].id)
+                } else {
+                    var pagination = '#'.concat(weeks[currentweeks - 1].id, ', #', weeks[currentweeks].id, ', #', weeks[currentweeks + 1].id);
+                }
+
+                d3.selectAll('.pagination')
+                    .classed('hidden', true);
+
+                d3.selectAll(pagination)
+                    .classed('hidden', false);
+            }
+
+            d3.csv('data/week-dates.csv' + '?' + Math.floor(Math.random() * 1000), dates => {
+                var weekFrom = d3.max((dates.filter(d => { return d.dateWeek == Number(activeWeekId.match(/\d+/g).map(Number)) })), d => { return d.weekFrom });
+                var weekTo = d3.max((dates.filter(d => { return d.dateWeek == Number(activeWeekId.match(/\d+/g).map(Number)) })), d => { return d.weekTo });
+
+                d3.selectAll('.date')
+                    .text(weekFrom + ' to ' + weekTo);
+
+                d3.selectAll('#week')
+                    .text('Year ' + currentWeek.toString().slice(0, -2));
+            });
+
+            if (d3.selectAll('.active-state').size() > 0) {
+                var activeState = $('.active-state').attr('id')
+
+                state = d3.max(map.coordinates.features.filter(state => { return state.id == activeState }))
+
+                var bounds = path.bounds(state),
+                    dx = bounds[1][0] - bounds[0][0],
+                    dy = bounds[1][1] - bounds[0][1],
+                    x = (bounds[0][0] + bounds[1][0]) / 2,
+                    y = (bounds[0][1] + bounds[1][1]) / 2,
+                    scale = .9 / Math.max(dx / width, dy / height),
+                    translate = [width / 2 - scale * x, height / 2 - scale * y];
+
+                d3.selectAll('circle')
+                    .style('visibility', 'hidden')
+                    .attr('transform', 'translate(0, 0)scale(1)');
+
+                d3.selectAll('circle[data-state=' + activeState + ']')
+                    .style('visibility', 'visible')
+                    .attr('transform', 'translate(' + translate + ')scale(' + scale + ')')
+            }
+        };
+        /* /end update week */
+        
+        /* start custom jQuery function */
+        $.fn.svgEvent = function (eventName) {
+            var event;
+            if (typeof (Event) === 'function') {
+                event = new Event(eventName);
+            } else {
+                event = document.createEvent('Event');
+                event.initEvent(eventName, true, true);
+            }
+            this[0].dispatchEvent(event);
+            return $(this);
+        }
+        /* /end custom jQuery function */
+
+        /* start helper functions */
+        function getWeekNo(date) {
+            var tdt = new Date(date.valueOf());
+            var dayn = (date.getDay() + 6) % 7;
+            tdt.setDate(tdt.getDate() - dayn + 3);
+            var firstThursday = tdt.valueOf();
+            tdt.setMonth(0, 1);
+            if (tdt.getDay() !== 4) {
+                tdt.setMonth(0, 1 + ((4 - tdt.getDay()) + 7) % 7);
+            }
+            return 1 + Math.ceil((firstThursday - tdt) / 604800000);
+        }
+
+        function formatDoubleDigit(number) {
+            return number.toLocaleString('en-US', {
+                minimumIntegerDigits: 2, useGrouping: false
+            })
+        };
+        /* /end helper functions */
+    </script>
+</body>
+
+</html>
